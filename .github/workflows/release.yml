@@ -1,4 +1,4 @@
-name: Произвести релиз
+name: Произвести релиз вручную
 
 on:
   workflow_dispatch:
@@ -26,9 +26,9 @@ jobs:
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
             docker pull cr.yandex/crpf6kcjoh0imfio6dbc/app:${{ github.event.inputs.release_version }}_latest
-            docker stop new_container || true
-            docker rm new_container || true
-            docker run -d --name new_container -p 3000:3000 cr.yandex/crpf6kcjoh0imfio6dbc/app:${{ github.event.inputs.release_version }}_latest
+            docker stop loving_chandrasekhar || true
+            docker rm loving_chandrasekhar || true
+            docker run -d --name loving_chandrasekhar -p 3000:3000 cr.yandex/crpf6kcjoh0imfio6dbc/app:${{ github.event.inputs.release_version }}_latest
 
       - name: Проверка репозитория
         uses: actions/checkout@v4
